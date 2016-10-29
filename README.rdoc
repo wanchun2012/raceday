@@ -16,8 +16,8 @@ MongoDB
 
 >>vim .bash_profile
 
-export MONGO_PATH=/usr/local/mongodb
-export PATH=$PATH:$MONGO_PATH/bin
+  export MONGO_PATH=/usr/local/mongodb
+  export PATH=$PATH:$MONGO_PATH/bin
 
 ##restart terminal
 
