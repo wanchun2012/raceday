@@ -1,28 +1,64 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+>>cat ~/.bash_history
 
-Things you may want to cover:
+MongoDB
 
-* Ruby version
+>>sudo mkdir -p /data/db
 
-* System dependencies
+>>sudo chown username /data/db
 
-* Configuration
+>>cd
 
-* Database creation
+>>pwd
 
-* Database initialization
+>>touch .bash_profile
 
-* How to run the test suite
+>>vim .bash_profile
 
-* Services (job queues, cache servers, search engines, etc.)
+export MONGO_PATH=/usr/local/mongodb
+export PATH=$PATH:$MONGO_PATH/bin
 
-* Deployment instructions
+##restart terminal
 
-* ...
+>>mongo -version
+
+Ruby Configuraton
+
+>>rails new raceday
+
+add Mongo gem
+
+  #Add mongoid gem to Gemfile
+  gem 'mongoid', '~>5.0.0'
+
+>>bundle
+
+>>rails generate rspec:install
+
+>>rails g mongoid:config
+
+nokogiri problem:
+
+>>xcode-select --install
+
+>>gem install nokogiri
+
+>>gem install nokogiri -- --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/libxml2 --use-system-libraries
+
+Configuration in raceday/config/locales/application.rb
+
+add
+
+    #bootstraps mongoid within applications -- like rails console
+    Mongoid.load!('./config/mongoid.yml')
+
+    #which default ORM are we using with scaffold 
+    #add --orm mongoid, or active_record
+    # to rails generate cmd line to be specific 
+    #config.generators {|g| g.orm :active_record} 
+    config.generators {|g| g.orm :mongoid}
+    
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
