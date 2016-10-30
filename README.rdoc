@@ -59,6 +59,19 @@ add
     #config.generators {|g| g.orm :active_record} 
     config.generators {|g| g.orm :mongoid}
     
+In Project
+
+Wanchuns-MBP:raceday wanchunzhang$ rails c
+Running via Spring preloader in process 1299
+Loading development environment (Rails 4.2.4)
+irb(main):001:0> Mongoid::Clients.default
+MONGODB | Adding localhost:27017 to the cluster.
+=> #<Mongo::Client:0x70268804261780 cluster=localhost:27017>
+irb(main):002:0> Racer.mongo_client.database.name
+=> "raceday_development"
+irb(main):003:0> Racer.collection.name
+=> "Racer"
+irb(main):004:0> 
 
 
 
