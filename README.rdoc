@@ -81,4 +81,11 @@ Views
 
   rails g scaffold_controller racer number:integer first_name last_name gender group secs:integer
 
+add routes to views then rake routes
 
+config/routes.rb
+
+  Rails.application.routes.draw do
+
+    resources :racers
+    root to: 'racers#index'
