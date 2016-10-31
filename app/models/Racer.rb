@@ -27,6 +27,33 @@ class Racer
 		nil
 	end
 
+	# accept a hash as input parameters
+	# extract the :page property from that hash, convert to an integer, and default to the value of 1 if not set.
+	# extract the :per_page property from that hash, convert to an integer, and default to the value of 30 if not set • find all racers sorted by number assending.
+	# limit the results to page and limit values.
+	# convert each document hash to an instance of a Racer class
+	#  Return a WillPaginate::Collection with the page, limit, 
+	# and total values filled in – as well as the page worth of data.
+	def self.paginate(params)
+    	Rails.logger.debug("paginate(#{params})")
+    	page=(params[:page] ||= 1).to_i
+    	limit=(params[:per_page] ||= 30).to_i
+    	offset=(page-1)*limit
+
+    	#get the associated page of Zips -- eagerly convert doc to Zip
+    	racers=[]
+    	all({}, {}, offset, limit).each do |doc|
+      		racers << Racer.new(doc)
+    	end
+
+    	#get a count of all documents in the collection
+    	total=all({}, {}, 0, 1).count
+
+    	WillPaginate::Collection.create(page, limit, total) do |pager|
+      		pager.replace(racers)
+    	end   
+    end
+     
 	# convenience method for access to client in console
 	def self.mongo_client
 		Mongoid::Clients.default
@@ -85,7 +112,7 @@ class Racer
 	# update the racer with the supplied values – replacing all values
 def update(params) 
 	Rails.logger.debug {"updating #{self} with #{params}"}
-	
+
     @number = params[:number].to_i
     @first_name = params[:first_name] 
     @last_name = params[:last_name]  
