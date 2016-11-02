@@ -143,5 +143,5 @@ import data:
 Push to Heroku
 
   heroku create run-run-race-day
-  heroku config:add MONGOLAB_URI=mongodb://<username>:<password@>ds023714.mongolab.com:23714/race_day
+  heroku config:add MONGOLAB_URI=mongodb://<username>:<password@>ds023714.mlab.com:23714/race_day
   git push heroku master
