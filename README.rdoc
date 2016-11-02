@@ -118,9 +118,11 @@ if event not found: You can turn off history substitution using set +H.
 Maybe try --jsonArray tag?
 
 
-  Wanchuns-MBP:bin wanchunzhang$ mongoimport -h ds023714.mlab.com:23714 -d race_day -c racer -u <username> -p <password> --   file ../../raceday/race_results.json
+  Wanchuns-MBP:bin wanchunzhang$ mongoimport -h ds023714.mlab.com:23714 -d race_day 
+  -c racer -u <username> -p <password> --   file ../../raceday/race_results.json
   2016-11-02T11:06:31.408+0000	connected to: ds023714.mlab.com:23714
-  2016-11-02T11:06:31.508+0000	Failed: error unmarshaling bytes on document #0: JSON decoder out of sync - data changing     underfoot?
+  2016-11-02T11:06:31.508+0000	Failed: error unmarshaling bytes on document #0: 
+  JSON decoder out of sync - data changing underfoot?
   2016-11-02T11:06:31.508+0000	imported 0 documents
   Wanchuns-MBP:bin wanchunzhang$ 
 
