@@ -129,10 +129,12 @@ import data:
   Run mongod in mongo/bin/
   start another terminal in mongo/bin/
 
-  mongoimport -h ds023714.mlab.com:23714 -d race_day -c racer -u <username> -p <password> --file ../../raceday/race_results.json 
+  mongoimport -h ds023714.mlab.com:23714 -d race_day 
+  -c racer -u <username> -p <password> --file ../../raceday/race_results.json 
 
   or
 
-  mongoimport -h ds023714.mlab.com:23714 -d race_day -c racer -u <username> -p <password> --jsonArray ../../raceday/race_results
+  mongoimport -h ds023714.mlab.com:23714 -d race_day
+  -c racer -u <username> -p <password> --jsonArray ../../raceday/race_results
 
 
