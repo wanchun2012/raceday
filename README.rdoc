@@ -89,3 +89,50 @@ config/routes.rb
 
     resources :racers
     root to: 'racers#index'
+    
+Setup Deploy:
+if port has been taken:
+
+
+ps wuax | grep mongo
+kill 668
+
+if event not found: You can turn off history substitution using set +H.
+
+
+Wanchuns-MBP:bin wanchunzhang$ mongoimport -h ds023714.mlab.com:23714 -d race_day -c racer -u <username> -p <password> --file ../../raceday/race_results.json 
+-bash: !Decadentia0616!: event not found
+Wanchuns-MBP:bin wanchunzhang$ bash --version
+GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin14)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Wanchuns-MBP:bin wanchunzhang$ echo "Reboot  your instance!"
+-bash: !": event not found
+Wanchuns-MBP:bin wanchunzhang$ set +H
+Wanchuns-MBP:bin wanchunzhang$ bash --version
+GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin14)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Wanchuns-MBP:bin wanchunzhang$ echo "Reboot your instance!"
+Reboot your instance!
+
+
+Maybe try --jsonArray tag?
+
+
+Wanchuns-MBP:bin wanchunzhang$ mongoimport -h ds023714.mlab.com:23714 -d race_day -c racer -u <username> -p <password> --file ../../raceday/race_results.json
+2016-11-02T11:06:31.408+0000	connected to: ds023714.mlab.com:23714
+2016-11-02T11:06:31.508+0000	Failed: error unmarshaling bytes on document #0: JSON decoder out of sync - data changing underfoot?
+2016-11-02T11:06:31.508+0000	imported 0 documents
+Wanchuns-MBP:bin wanchunzhang$ 
+
+
+import data:
+Run mongod in mongo/bin/
+start another terminal in mongo/bin/
+
+mongoimport -h ds023714.mlab.com:23714 -d race_day -c racer -u <username> -p <password> --file ../../raceday/race_results.json 
+
+or
+
+mongoimport -h ds023714.mlab.com:23714 -d race_day -c racer -u <username> -p <password> --jsonArray ../../raceday/race_results
+
+
