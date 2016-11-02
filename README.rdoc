@@ -140,3 +140,8 @@ import data:
   -c racer -u <username> -p <password> --jsonArray ../../raceday/race_results
 
 
+Push to Heroku
+
+  heroku create run-run-race-day
+  heroku config:add MONGOLAB_URI=mongodb://<username>:<password@>ds023714.mongolab.com:23714/race_day
+  git push heroku master
